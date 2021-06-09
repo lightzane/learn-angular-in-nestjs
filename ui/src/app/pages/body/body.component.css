@@ -1,0 +1,102 @@
+.width-100p {
+  width: 100% !important;
+}
+
+.handset-add-button {
+  display: none;
+  position: fixed;
+  bottom: 4%;
+  right: 8%;
+}
+
+.table-container {
+  max-height: 400px;
+  overflow: auto;
+  border-radius: 5px;
+  margin-bottom: 20%;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-header-cell {
+  font-family: "Roboto" !important;
+  font-size: 0.9em !important;
+  font-weight: normal !important;
+  color: #fff;
+  background-color: rgba(162, 155, 254, 1);
+  opacity: 1 !important;
+}
+
+/* START: Columns */
+/* mat-column-<matColumnDef> */
+/* matColumnDef is defined in the html */
+.mat-column-quantity {
+  display: none;
+}
+
+/* .mat-column-price {
+  
+} */
+
+.mat-column-name {
+  border-left: 1px solid #eee;
+  padding-left: 10px;
+}
+
+.mat-column-total {
+  padding: 10px;
+  font-weight: bold;
+  font-family: "Anaheim", "Roboto", "sans-serif";
+  font-size: 1.2em;
+  cursor: default !important;
+}
+
+.mat-column-misc {
+  width: 10px;
+  text-align: center;
+  opacity: 0.3;
+}
+/* END: Columns */
+
+/* START: Rows */
+.mat-row {
+  cursor: pointer;
+}
+/* .mat-row:hover {
+  background-color: azure;
+} */
+.mat-row:nth-child(even) {
+  background-color: #eee;
+  background-color: rgba(162, 155, 254, 0.2);
+}
+/* END: Rows */
+
+.mat-footer-cell {
+  font-weight: bold;
+}
+
+.mat-cell:hover {
+  /* background: rgba(162, 155, 254, 0.3); */
+  /* background: azure; */
+  color: #e74c3c;
+}
+.mat-cell.mat-column-total:hover {
+  color: #000;
+}
+
+#overallPrice {
+  color: rgba(162, 155, 254, 1);
+}
+
+.zero-quantity,
+.zero-quantity-black {
+  background: #e74c3c;
+  color: #fff !important;
+}
+
+.zero-quantity-black {
+  background: #7f8c8d;
+  padding: 2px 10px;
+}

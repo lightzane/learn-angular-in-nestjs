@@ -1,0 +1,45 @@
+.container {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  /* border: 1px solid red; */
+  overflow: hidden;
+}
+
+h1 {
+  margin: 0;
+  padding: 0;
+}
+
+.mat-list {
+  width: 100%;
+}
+
+.my-flex-container {
+  /* border: 1px solid red; */
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.my-flex-item {
+  /* border: 1px solid black; */
+  text-align: center;
+}
+
+.input-itemname {
+  font-size: 24px;
+  outline: none;
+  border: none;
+}
+
+.icon-edit--input-itemname {
+  position: absolute;
+  font-size: 1.4em;
+  left: 10px;
+  opacity: 0;
+}
+
+.input-itemname-container:hover .icon-edit--input-itemname {
+  opacity: 1;
+}

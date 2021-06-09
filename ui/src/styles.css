@@ -1,0 +1,62 @@
+/* You can add global styles to this file, and also import other style files */
+
+p {
+  font-family: "Anaheim", "Roboto", "sans-serif";
+  font-size: 16px;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+/* Remove Arrows/Spinners ========= */
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* ========= Remove Arrows/Spinners */
+
+.mat-sidenav-content {
+  background-color: rgba(255, 255, 255, 0.85);
+  background-image: url("https://media.pocketgamer.com/artwork/ra-81540-1574171589/sky-ios-screenshot-field.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-blend-mode: lighten;
+}
+
+/* experimental, avoid redundant scrollbar for material implmentation */
+body {
+  overflow: hidden;
+}
+
+/* since you cannot scroll the body, */
+/* push the content to the view by  */
+/* adding some extra spaces at the bottom */
+.mat-sidenav-content-mobile {
+  padding-bottom: 30% !important;
+}
+
+.pricetag,
+.freetag {
+  border-radius: 3px;
+  padding: 2px 5px;
+  font-size: 12px;
+  font-family: "Anaheim", "Roboto", "sans-serif";
+  margin: 0 2px;
+  color: #000 !important;
+  font-weight: bold;
+  background-color: #fff;
+}
+
+.freetag {
+  background-color: #ffeaa7;
+}

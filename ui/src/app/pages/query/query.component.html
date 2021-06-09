@@ -1,0 +1,92 @@
+<div class="container">
+    <div class="alert alert-warning">
+        This was developed using Angular CLI 12
+    </div>
+    <div class="alert alert-success">
+        Angular creates an object to extract value from query string in the Url using
+        <code>this.route.queryParamMap.subscribe((params) => &#123; &#125;)</code>
+    </div>
+</div>
+
+<div class="container">
+    <!-- Description -->
+    <mat-card class="mat-elevation-z1">
+        <p>
+            The <strong>Query</strong> is a string included in the URL. It should contain non-sensitive data. This
+            can be used as a reference link to be shared accross different party. It is usually used in <mark>GET</mark>
+            requests. Keep the data small and limited since the browser might throw an error for having a very long URL.
+            Query strings are mostly used to filter data.
+        </p>
+        <p>
+            In Angular routing, no need to specifiy query string. But included in
+            <code>this.router.navigate(['/url'], &#123; queryParams &#125;)</code> where the queryParams is an object
+            with a
+            <code>key:value</code> pair format.
+        </p>
+    </mat-card>
+</div>
+
+<br>
+
+<div class="container">
+    <div class="alert alert-light">
+        <code>GET<span [innerHTML]="getQueryStringAsHtml(true)"></span></code>
+    </div>
+</div>
+
+<div class="container">
+    <h1>Fibonacci Sequence</h1>
+    <div class="container">
+        <!-- fibonacciForm -->
+        <form [formGroup]="fibonacciForm">
+            <!-- firstNumber field -->
+            <mat-form-field appearance="outline">
+                <mat-label>First number</mat-label>
+                <input formControlName="firstNumber" matInput placeholder="e.g. any whole number" type="number" required
+                    min="0">
+                <mat-hint>Starting number</mat-hint>
+                <mat-error>Enter valid number</mat-error>
+            </mat-form-field>
+
+            <!-- secondNumber field -->
+            <mat-form-field appearance="outline">
+                <mat-label>Second number</mat-label>
+                <input formControlName="secondNumber" matInput placeholder="e.g. any whole number" type="number"
+                    required min="0">
+                <mat-hint>Enter any integer</mat-hint>
+                <mat-error>Enter valid number</mat-error>
+            </mat-form-field>
+
+            <!-- total field -->
+            <mat-form-field appearance="fill">
+                <mat-label>Total Output</mat-label>
+                <input formControlName="total" matInput placeholder="e.g. any whole number" type="number" required
+                    max="20" min="2">
+                <mat-hint>Any number between 1 and 21</mat-hint>
+                <mat-error>Enter valid number</mat-error>
+            </mat-form-field>
+
+            <br><br>
+
+            <!--
+                when the button is inside the <form>
+                it will detect any enter in the sibling input fields ?
+                and the button will trigger ?
+            -->
+            <button mat-raised-button color="primary" (click)="submitRequest()"
+                [matTooltip]="getQueryStringAsHtml(false)" [disabled]="fibonacciForm.invalid">Get
+                New Sequence
+            </button>
+        </form>
+    </div>
+
+    <br>
+</div>
+
+<div class="container">
+    <!-- Response from server will display here -->
+    <div class="alert alert-light">
+        <span *ngIf="sequence">{{ getSequenceInString() }}</span>
+        <code *ngIf="!sequence">Waiting for new sequence request...</code>
+    </div>
+</div>

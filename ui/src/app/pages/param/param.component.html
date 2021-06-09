@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="alert alert-warning">
+        This was developed using Angular CLI 12
+    </div>
+    <div class="alert alert-success">
+        Angular gets the values (<code>pokemon/:id</code>) from the path in the Url using
+        <code>this.route.paramMap.subscribe((params) => &#123; &#125;)</code>
+    </div>
+</div>
+
+<div class="container">
+    <!-- Description -->
+    <mat-card class="mat-elevation-z1">
+        <p>
+            The <strong>Param</strong> is included in the Url that does look like a path. This can be used as a
+            reference link to be shared accross different party. This should contain non-sensitive data. It can be used
+            in <mark>GET</mark> requests. And,
+            in most cases, when referring to a specific entity (i.e. <code>id</code>), it is usually used with
+            <mark>POST, PUT, PATCH and DELETE</mark> requests
+        </p>
+        <p>
+            In Angular routing, you need to specify the path for the param like in the below syntax.
+        </p>
+    </mat-card>
+</div>
+
+<br>
+
+<div class="container">
+    <div class="alert alert-light">
+        <code>GET /param/pokemon</code> <span>// gets all data in the list</span><br>
+        <code>GET /param/pokemon/:id</code> <span>// gets a specific data in the list</span>
+    </div>
+</div>
+
+<div class="container">
+    <!-- Buttons to redirect to child routes -->
+    <a routerLink="/param/pokemon" matTooltip="GET /param/pokemon" mat-raised-button color="primary">Get Available
+        Pokemon
+    </a>
+    <a routerLink="/param/movies" matTooltip="GET /param/movies" mat-raised-button color="accent">Get Available
+        Movies
+    </a>
+</div>
+<br>
+
+<!-- Display Child view here -->
+<router-outlet></router-outlet>

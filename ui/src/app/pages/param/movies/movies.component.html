@@ -1,0 +1,61 @@
+<div class="container-fluid" *ngIf="movies">
+    <div class="alert alert-warning">
+        <strong>NOTE</strong>:
+        These are the only available data in the server.
+    </div>
+    <!-- Display single movie here -->
+    <div class="container" *ngIf="movie">
+        <mat-card>
+            <!-- Movie title -->
+            <mat-card-header>
+                <mat-card-title>{{ movie.name }}</mat-card-title>
+            </mat-card-header>
+
+            <mat-card-content>
+                <!-- iframe for youtube -->
+                <div class="container" style="text-align: center;">
+                    <iframe class="vid-container" [class.mobile]="isHandset$ | async"
+                        [src]="movie.videoTrailerUrl | safe" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                    <!-- notice pipeline: safe -->
+                    <!-- ( see safe.pipe.ts ) -->
+                    <!-- this is a customized pipe -->
+                </div>
+
+                <br>
+
+                <!-- Movie details -->
+                <div class="container">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut doloremque vero quasi, placeat id
+                        dignissimos repellendus dolor illo. Nulla aspernatur laudantium veniam at magnam molestiae eius
+                        sunt
+                        animi officiis doloribus?</p>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+</div>
+
+<div class=" container-fluid"
+    style="display: flex; flex-wrap: wrap; justify-content: space-evenly; align-content: space-around;">
+    <!-- Display list of movies here -->
+    <mat-card class="movie-card" *ngFor="let movie of movies" routerLink="/param/movies/{{ movie.url }}"
+        matTooltip="GET /param/movies/{{ movie.url }}">
+
+        <!-- Movie title -->
+        <h3>{{ movie.name }}</h3>
+
+        <!-- Movie image -->
+        <img mat-card-image [src]="movie.imageUrl">
+
+        <!-- Movie content -->
+        <mat-card-content>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem aperiam dolorem iusto fuga quam
+                necessitatibus quos ipsam omnis vero est nemo commodi eius consequatur magni, animi officia unde
+                inventore sapiente.</p>
+        </mat-card-content>
+    </mat-card>
+</div>

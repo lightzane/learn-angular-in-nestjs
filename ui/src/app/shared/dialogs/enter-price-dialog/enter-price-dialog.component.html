@@ -1,0 +1,33 @@
+<div class="container" style="text-align: center;">
+    <h1 mat-dialog-title>{{ item.name }}</h1>
+    <div mat-dialog-content>
+        <form [formGroup]="quantityPriceForm">
+            <p>
+                <!-- Quantity field -->
+                <mat-form-field appearance="outline">
+                    <mat-label>How many?</mat-label>
+                    <input type="text" matInput placeholder="e.g. 2" formControlName="quantity" cdkFocusInitial>
+                    <!-- cdkFocusInitial specifies the element that will receive focus upon initialization of the region -->
+                    <mat-hint>If not specified, history tells</mat-hint>
+                    <mat-error *ngIf="quantity.errors?.pattern">Enter valid quantity</mat-error>
+                </mat-form-field>
+            </p>
+            <p>
+                <!-- Price field -->
+                <mat-form-field appearance="fill">
+                    <mat-label>How much?</mat-label>
+                    <input type="text" matInput placeholder="e.g. 25.00" formControlName="price">
+                    <mat-hint>If not specified, history tells</mat-hint>
+                    <mat-error *ngIf="price.errors?.pattern">Enter valid price format</mat-error>
+                </mat-form-field>
+            </p>
+        </form>
+    </div>
+    <!-- Action buttons (Confirm, Maybe later) -->
+    <div mat-dialog-actions style="display:flex;justify-content: space-evenly; text-align: center;">
+        <button mat-raised-button color="primary" [mat-dialog-close]="quantityAndPrice" (click)="confirmPrice()"
+            [disabled]="quantityPriceForm.invalid">Confirm</button>
+        <!-- [mat-dialog-close] returns some default data when the dialog is closed (see body.component.ts) openDialogAndEnterPrice() -->
+        <button mat-button (click)="onMaybeClick()">Maybe later</button>
+    </div>
+</div>

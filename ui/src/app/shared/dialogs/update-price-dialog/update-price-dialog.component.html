@@ -1,0 +1,31 @@
+<h1 mat-dialog-title>{{ item.name }}</h1>
+<!-- Display Current Price and let user know it's free when entering 0 as price -->
+<p *ngIf="item.price > 0">
+    Current Price:
+    <span class="pricetag mat-elevation-z1">{{ item.price | currency:" "}}</span>
+</p>
+<p *ngIf="item.price == 0">
+    Current Price: <span class="freetag mat-elevation-z1">FREE</span>
+</p>
+
+<!-- Price field -->
+<div mat-dialog-content>
+    <form [formGroup]="updatePriceForm">
+        <mat-form-field appearance="fill">
+            <mat-label>Price</mat-label>
+            <input matInput formControlName="updatedPrice" cdkFocusInitial>
+            <!-- cdkFocusInitial specifies the element that will receive focus upon initialization of the region -->
+            <mat-hint>Enter "0" to make item free</mat-hint>
+            <mat-error *ngIf="updatedPrice.errors?.pattern">Enter valid price format</mat-error>
+        </mat-form-field>
+        <br><br>
+    </form>
+</div>
+
+<!-- Action buttons (Update, Cancel) -->
+<div mat-dialog-actions style="display:flex;justify-content: space-evenly; text-align: center;">
+    <button mat-raised-button color="primary" [mat-dialog-close]="updatedPrice.value"
+        [disabled]="updatedPrice.invalid">Update</button>
+    <!-- [mat-dialog-close] returns  data when the dialog is closed (see body.component.ts) openDialogAndEnterPrice() -->
+    <button mat-button (click)="dialogRef.close()">Cancel</button>
+</div>

@@ -1,0 +1,8 @@
+.alert-light > span {
+  margin: 0 10px;
+  color: #00b894;
+}
+
+.container > a {
+  margin: 0 10px;
+}

@@ -1,0 +1,38 @@
+.mat-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+.sidenav-container {
+  height: 92%;
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+  font-family: "Anaheim", "roboto", "sans-serif";
+}
+
+.mat-nav-list a {
+  font-family: "Anaheim", "Roboto", "sans-serif";
+  font-weight: bold;
+}
+
+.mat-sidenav-content {
+  padding-top: 10px;
+  padding-bottom: 10%;
+}
+
+.active,
+.active:hover,
+.active:focus {
+  background-color: lightgoldenrodyellow;
+  background-color: rgba(162, 155, 254, 0.3);
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}

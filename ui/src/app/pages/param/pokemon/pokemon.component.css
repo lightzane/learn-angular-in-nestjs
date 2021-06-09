@@ -1,0 +1,43 @@
+.poke-card {
+  margin: 5px 0;
+  cursor: pointer;
+}
+
+.poke-card:hover {
+  background-color: ivory;
+}
+
+.poke-type {
+  padding: 3px 5px;
+  border-radius: 5px;
+  margin: 0 3px;
+  background: #fff;
+  color: #fff;
+  text-transform: uppercase;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 3px 8px;
+  font-family: "Roboto";
+  font-size: 0.75rem;
+  text-shadow: 1px 1px 2px rgb(0 0 0 / 70%);
+}
+
+.grass {
+  background: #7c5;
+}
+.poison {
+  background: #a59;
+}
+.electric {
+  background: #fc3;
+}
+.fairy {
+  background: #e9e;
+}
+
+h3 {
+  margin-bottom: 0;
+}
+
+.mat-card-avatar {
+  background-size: cover;
+}

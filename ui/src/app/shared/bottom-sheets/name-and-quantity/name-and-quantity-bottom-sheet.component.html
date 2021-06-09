@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="input-itemname-container">
+        <mat-icon class="icon-edit--input-itemname">edit</mat-icon>
+        <!-- Edit Item name -->
+        <input id="inputItemname" class="input-itemname" [formControl]="inputItemname"
+            (keypress)="updateItemname($event)">
+        <br>
+        <small *ngIf="inputItemname.valid && !inputItemname.dirty">Item</small>
+        <small *ngIf="inputItemname.errors?.required" style="color:red">Please enter a name</small>
+        <small *ngIf="inputItemname.dirty">Press enter to confirm</small>
+    </div>
+
+    <br>
+
+    <div style="text-align:center; font-size: 12px;">Quantity</div>
+    <div class="my-flex-container" style="max-width: 300px; margin:auto;">
+        <!-- Minus button (-) -->
+        <div class="my-flex-item">
+            <button mat-mini-fab class="mat-elevation-z1" (click)="minusQuantity()">
+                <mat-icon>remove_outline</mat-icon>
+            </button>
+        </div>
+
+        <!-- Quantity field here -->
+        <div class="my-flex-item">
+            <mat-form-field style="border:none">
+                <input matInput [formControl]="txtQuantity" style="text-align:center;" (keypress)="detectEnter($event)">
+                <mat-hint *ngIf="txtQuantity.dirty">Press enter to confirm</mat-hint>
+                <mat-error *ngIf="txtQuantity.errors?.pattern">Enter valid quantity</mat-error>
+                <mat-error *ngIf="txtQuantity.errors?.required">Please enter a number</mat-error>
+            </mat-form-field>
+        </div>
+
+        <!-- Add button (+) -->
+        <div class="my-flex-item">
+            <button mat-mini-fab class="mat-elevation-z1" (click)="addQuantity()">
+                <mat-icon>add_outline</mat-icon>
+            </button>
+        </div>
+    </div>
+
+</div>

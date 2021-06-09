@@ -1,0 +1,69 @@
+<div class="container" *ngIf="pokemon">
+    <div class="alert alert-warning">
+        <strong>NOTE</strong>:
+        These are the only available data in the server.
+    </div>
+    <div class="row" style="display:flex; align-items: flex-start; justify-content: space-evenly; ">
+
+        <!-- Display single pokemon here -->
+        <div class="col-md-4 col-sm-4" *ngIf="pkmn" style="background:#fff; padding:0;">
+
+            <!-- Card: Single Pokemon -->
+            <mat-card class="mat-elevation-z2" style="background-color:rgba(162, 155, 254,0.3)">
+
+                <!-- Pokemon name -->
+                <mat-card-header>
+                    <div mat-card-avatar [style.background-image]="'url(' + pkmn.image + ')'">
+                    </div>
+                    <mat-card-title>{{ pkmn.name }}</mat-card-title>
+                    <mat-card-subtitle>Pokemon #{{ pkmn.id }}</mat-card-subtitle>
+                </mat-card-header>
+
+                <!-- Pokemon image -->
+                <img mat-card-image [src]="pkmn.image">
+
+                <!-- Pokemon details -->
+                <mat-card-content>
+                    <p>Type:
+                        <span *ngFor="let type of pkmn.type">
+                            <span class="poke-type"
+                                [ngClass]="{'grass': type == 'GRASS', 'poison': type == 'POISON', 'electric': type=='ELECTRIC', 'fairy': type=='FAIRY'}">
+                                {{ type }}</span>
+                        </span>
+                    </p>
+                    <p>Height: {{ pkmn.height }}</p>
+                    <p>Weight: {{ pkmn.weight }}</p>
+                </mat-card-content>
+
+                <!-- Action buttons (Like, Favorite, Share) -->
+                <mat-card-actions>
+                    <button mat-icon-button matTooltip="LIKE" color="primary">
+                        <mat-icon>thumb_up</mat-icon>
+                    </button>
+                    <button mat-icon-button matTooltip="FAVORITE" color="accent">
+                        <mat-icon>favorite</mat-icon>
+                    </button>
+                    <button mat-icon-button matTooltip="SHARE">
+                        <mat-icon>share</mat-icon>
+                    </button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+
+        <!-- Display a list of pokemon here -->
+        <div class="col-md-4 col-sm-4">
+            <!-- Card: Multiple Pokemon -->
+            <mat-card class="poke-card" *ngFor="let pkmn of pokemon" routerLink="/param/pokemon/{{pkmn.id}}"
+                matTooltip="GET /param/pokemon/{{ pkmn.id }}">
+                <h3>{{ pkmn.name }}
+                    <small *ngFor="let type of pkmn.type">
+                        <span class="poke-type"
+                            [ngClass]="{'grass': type == 'GRASS', 'poison': type == 'POISON', 'electric': type=='ELECTRIC', 'fairy': type=='FAIRY'}">
+                            {{ type }}</span>
+                    </small>
+                </h3>
+                <small>GET /param/pokemon/{{ pkmn.id }}</small>
+            </mat-card>
+        </div>
+    </div>
+</div>

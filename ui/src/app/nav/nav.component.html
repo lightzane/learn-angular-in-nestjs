@@ -1,0 +1,61 @@
+<!-- mat-toolbar moved here from mat-sidenav-content -->
+<mat-toolbar color="primary">
+
+  <button type="button" mat-icon-button (click)="drawer.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>Title</span>
+
+  <!-- Spacer (flexbox magic) -->
+  <span class="example-spacer"></span>
+
+  <button mat-icon-button>
+    <mat-icon>verified_user</mat-icon>
+  </button>
+  <button mat-icon-button>
+    <mat-icon>favorite</mat-icon>
+  </button>
+  <button mat-icon-button>
+    <mat-icon>share</mat-icon>
+  </button>
+</mat-toolbar>
+
+<!-- Sidenav -->
+<mat-sidenav-container class="sidenav-container">
+
+  <!-- Change mode of drawer based on window size handled by isHandset$ -->
+  <mat-sidenav #drawer class="sidenav" [mode]="(isHandset$ | async) ? 'push' : 'side'"
+    [opened]="(isHandset$ | async) === false">
+
+    <mat-toolbar *ngIf="isServerAvailable">
+      > Requests
+    </mat-toolbar>
+
+    <!-- Just a cosmetic info -- Do Not Display if Server is available -->
+    <p style="padding-top: 10px;text-align: center;" *ngIf="!isServerAvailable">
+      Loading server content...
+    </p>
+
+    <!-- Links! -- Do NOT Display if Server Is NOT available -->
+    <mat-nav-list *ngIf="isServerAvailable">
+      <a mat-list-item routerLink="/body" routerLinkActive="active" (click)="closeDrawer()">BODY</a>
+      <a mat-list-item routerLink="/param" routerLinkActive="active" (click)="closeDrawer()">PARAM</a>
+      <a mat-list-item routerLink="/query" routerLinkActive="active" (click)="closeDrawer()">QUERY</a>
+    </mat-nav-list>
+
+    <!-- Just a loding animation -->
+    <div class="container" style="display:flex;justify-content: center;" *ngIf="!isServerAvailable">
+      <mat-spinner></mat-spinner>
+    </div>
+
+  </mat-sidenav>
+
+  <mat-sidenav-content [class.mat-sidenav-content-mobile]="(isHandset$ | async)">
+
+    <!-- Add Content Here (pages) -->
+    <!-- see app-routing.module.ts -->
+    <router-outlet></router-outlet>
+
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
