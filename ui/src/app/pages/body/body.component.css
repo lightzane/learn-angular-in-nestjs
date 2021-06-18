@@ -3,10 +3,11 @@
 }
 
 .handset-add-button {
-  display: none;
+  /* display: none; */
   position: fixed;
   bottom: 4%;
   right: 8%;
+  z-index: 999;
 }
 
 .table-container {
